@@ -289,3 +289,10 @@ $ crontab -e
 - กด Esc พิมพ์ :wq เพื่อบันทึกตารางงานอัตโนมัติ
 ~~~
 
+
+รีสตาร์ท cron
+
+~~~
+$ /etc/init.d/cron reload
+~~~
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-cron-restart01.png)
