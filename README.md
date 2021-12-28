@@ -380,3 +380,43 @@ $ docker run -dit --name cmpho-api --restart=always -p 80:80 -v $(pwd):/var/www/
 จะต้องแสดงหน้า php info
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-phpinfo.png)
+
+### ตั้งเวลาส่งข้อมูล
+
+- เข้าถึง container ด้วยคำสั่ง
+
+~~~
+$ docker exec -it [name] bash
+~~~
+
+~~~
+$ crontab -e
+~~~
+
+
+- กำหนดให้โปรแกรมทำอะไร
+- พิมพ์ในช่อง Command To Execute ดังนี้
+
+~~~
+/usr/local/bin/php /var/www/html/cmphoapi/api-sent.php
+~~~
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-crontab04.png)
+
+จากนั้นเว็บฯจะสร้างคำสั่งให้อัตโนมัติ เช่น
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-crontab03.png)
+
+~~~
+2 6,18 * * * /usr/local/bin/php /var/www/html/cmphoapi/api-sent.php
+~~~
+
+คัดลอกคำสั่งนี้ไปวางใน Crontab -e ของ Raspberry Pi
+
+ดังนี้
+
+~~~
+* * * * * /usr/local/bin/php /var/www/html/api-sent.php
+~~~
+
+- กด Esc พิมพ์ :wq เพื่อบันทึกตารางงานอัตโนมัติ
