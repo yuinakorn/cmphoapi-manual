@@ -297,3 +297,86 @@ $ /etc/init.d/cron reload
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-cron-restart01.png)
 
+### จบ..
+
+---
+
+## กรณีติดตั้งด้วย Docker 
+
+### ติดตั้ง Docker
+
+Uninstall old versions
+~~~
+$ sudo apt-get remove docker docker-engine docker.io containerd runc
+~~~
+
+download ไฟล์สำหรับติดตั้ง Docker get-docker.sh
+~~~
+$ curl -fsSL https://get.docker.com -o get-docker.sh
+$ ls
+$ sudo bash get-docker.sh
+~~~
+
+เซ็ตกลุ่ม user สำหรับ docker
+~~~
+$ sudo usermod -aG docker $(whoami)
+$ sudo usermod -aG docker root
+~~~
+
+ตรวจสอบ Docker ว่าติดตั้งสำเร็จหรือไม่
+~~~
+$ docker --version
+~~~
+
+enable service
+~~~
+$ sudo systemctl enable docker.service
+~~~
+
+---
+
+### โหลดโปรเจค
+
+เข้าไปที่ path ของโปรเจค
+
+~~~
+$ cd /var/www/html
+$ git clone https://github.com/yuinakorn/cmphoapi.git
+~~~
+
+- ใส่ username github ของท่านเอง หากไม่มี ใส่ yuinakorn ได้
+- ในช่อง password ให้ copy token นี้ไปวาง
+
+~~~
+Username for : $ yuinakorn
+Password for : $ จะส่ง Token ให้ทาง zoom
+~~~
+
+
+- จะได้โฟลเดอร์ชื่อ cmphoapi ทำการ เข้าไปในโฟลเดอร์โปรเจค พิมพ์
+
+~~~
+$ cd cmphoapi
+$ ls -l
+~~~
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-git03.png)
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-git05.png)
+
+### สร้าง Docker Container
+
+สร้าง Container ด้วยคำสั่ง
+
+* ก่อนรันคำสั่งต้องอยู่ที่พาร์ธ /var/www/html/cmphoapi/
+
+~~~
+$ docker run -dit --name cmpho-api --restart=always -p 80:80 -v $(pwd):/var/www/html yuinakorn/phppg-armv7
+~~~
+
+
+เข้า google chrome ในเครื่อง พิมพ์ ip ของ Raspberry Pi เช่น http://192.168.xxx.xxx/cmphoapi/i.php
+
+จะต้องแสดงหน้า php info
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-phpinfo.png)
