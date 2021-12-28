@@ -48,7 +48,7 @@
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi006.png)
 
-- เข้าสู่ prom ของ Raspberry Pi ได้แล้ว
+- เข้าสู่ prompt ของ Raspberry Pi ได้แล้ว
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi007.png)
 
