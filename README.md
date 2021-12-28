@@ -1,4 +1,4 @@
-# CMPHO php-api-client
+# CMPHO api-client
 
 ระบบเพื่อส่งข้อมูล
 
