@@ -1,8 +1,10 @@
 # CMPHO php-api-client
 
-ระบบ API สสจ.ชม เพื่อรับ-ส่งข้อมูลจากหน่วยบริการสาธารณสุขระดับอำเภอ
+ระบบเพื่อส่งข้อมูล
 
 สำหรับติดตั้งใน Raspberry PI
+
+---
 
 ### วิธีการติดตั้ง
 
@@ -30,6 +32,10 @@
 
 ![image](https://phoenixnap.com/kb/wp-content/uploads/2021/04/raspberry-pi-configuration-interaface-gui.png)
 
+ตั้งค่า เวลา Time Zone ดังนี้
+- ไปที่ Localisation->Set Timezone เลือก Asia / Bangkok
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-timezone01.png)
 ### Remote ไปหา Raspberry Pi ด้วย SSH
 
 - เปิด PowerShell หรือ Terminal สำหรับเครื่อง Mac
@@ -239,3 +245,47 @@ $ crontab -l
 ~~~
 $ crontab -e
 ~~~
+
+เมื่อเข้ามาครั้งแรกระบบจะให้เลือก text editor ที่จะใช้เขียน crontab
+
+- เลือกตัวเลือกที่ 2 vim.basic
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-crontab01.png)
+- จากนั้นจะเปิดไฟล์ crontab ขึ้นมา ให้ทำการลบคำอธิบายทุกบรรทัดออกให้หมดโดยกดปุ่ม dd เพื่อลบทีละบรรทัด
+
+เข้าเว็บ https://crontab-generator.org เพื่อสร้างตารางเวลาให้โปรแกรมทำงาน
+
+กำหนดตารางเวลาตามที่ สสจ.กำหนด เช่น ส่งข้อมูลอัตโนมัติทุกๆ 06.02 น. และ 18.02 น.
+ให้เลือก ดังนี้
+- เลือกหลักนาทีเป็น 2
+- เลือกหลักชั่วโมงเป็น 6am และ 18pm โดยกดปุ่ม Ctrl+คลิกเพื่อเลือกหลายรายการ
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-crontab02.png)
+
+- กำหนดให้โปรแกรมทำอะไร
+- พิมพ์ในช่อง Command To Execute ดังนี้
+
+~~~
+/usr/bin/php /var/www/html/cmphoapi/api-sent.php
+~~~
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-crontab04.png)
+
+จากนั้นเว็บฯจะสร้างคำสั่งให้อัตโนมัติ เช่น
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-crontab03.png)
+
+~~~
+2 6,18 * * * /usr/bin/php /var/www/html/cmphoapi/api-sent.php
+~~~
+
+คัดลอกคำสั่งนี้ไปวางใน Crontab -e ของ Raspberry Pi
+
+ดังนี้
+
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-crontab05.png)
+
+~~~
+- กด Esc พิมพ์ :wq เพื่อบันทึกตารางงานอัตโนมัติ
+~~~
+
