@@ -296,3 +296,4 @@ $ crontab -e
 $ /etc/init.d/cron reload
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-cron-restart01.png)
+
