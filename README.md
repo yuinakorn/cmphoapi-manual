@@ -216,7 +216,7 @@ $ vim connection.php
 
 ตั้งค่า connection ต่าง ๆ
 
-![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-vim-con01.png)
+![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-vim-con011.png)
 
 ~~~
 เสร็จแล้วกดปุ่ม Esc 
