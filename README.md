@@ -185,7 +185,7 @@ $ git clone https://github.com/yuinakorn/cmphoapi.git
 
 ~~~
 Username for : $ yuinakorn
-Password for : $ ส่ง Token ให้ใน zoom
+Password for : $ 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
 ~~~
 
 - จะได้โฟลเดอร์ชื่อ cmphoapi ทำการ เข้าไปในโฟลเดอร์โปรเจค พิมพ์
