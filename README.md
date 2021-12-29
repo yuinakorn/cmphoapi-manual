@@ -180,11 +180,11 @@ $ cd /var/www/html/
 ~~~
 $ git clone https://github.com/yuinakorn/cmphoapi.git
 ~~~
-- ใส่ username github ของท่านเอง หากไม่มี ใส่ yuinakorn ได้
+- ใส่ username github ของท่านเอง 
 - ในช่อง password ให้ copy token นี้ไปวาง
 
 ~~~
-Username for : $ yuinakorn
+Username for : $ your username
 Password for : $ ******
 ~~~
 
