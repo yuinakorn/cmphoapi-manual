@@ -185,7 +185,7 @@ $ git clone https://github.com/yuinakorn/cmphoapi.git
 
 ~~~
 Username for : $ yuinakorn
-Password for : $ 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
+Password for : $ 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
 ~~~
 
 - จะได้โฟลเดอร์ชื่อ cmphoapi ทำการ เข้าไปในโฟลเดอร์โปรเจค พิมพ์
