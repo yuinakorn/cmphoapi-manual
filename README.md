@@ -371,7 +371,7 @@ $ ls -l
 * ก่อนรันคำสั่งต้องอยู่ที่พาร์ธ /var/www/html/cmphoapi/
 
 ~~~
-$ docker run -dit --name cmpho-api --restart=always -p 80:80 -v $(pwd):/var/www/html yuinakorn/phppg-armv7
+$ docker run -dit --name cmpho-api --restart=always -p 80:80 -v $(pwd):/var/www/html yuinakorn/phpmysqlpg-armv7
 ~~~
 
 
