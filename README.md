@@ -65,14 +65,14 @@ passwd pi
 ### ติดตั้ง editor & git cli
 - พิมพ์ ดังนี้
 ~~~
-$ sudo apt install vim -y
-$ sudo apt install nano -y
+sudo apt install vim -y
+sudo apt install nano -y
 ~~~
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-vim01.png)
 ~~~
-$ sudo apt install git -y
-$ git --version
+sudo apt install git -y
+git --version
 ~~~
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-git01.png)
@@ -84,13 +84,13 @@ Install Apache (HTTP Server)
 update packages เพื่อปรับปรุงและอัพเดทแหล่งซอฟต์แวร์และการตรวจสอบเวอร์ชั่นใหม่
 - พิมพ์ ดังนี้
 ~~~
-$ sudo apt-get update
-$ sudo apt update
+sudo apt-get update
+sudo apt update
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi009.png)
 - พิมพ์ ดังนี้
 ~~~
-  $ sudo apt-get install apache2 -y
+sudo apt-get install apache2 -y
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-apache01.png)
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-apache02.png)
@@ -99,17 +99,17 @@ $ sudo apt update
 ### ติดตั้ง PHP
 - พิมพ์ ดังนี้
 ~~~
-$ sudo apt install libapache2-mod-php -y
+sudo apt install libapache2-mod-php -y
 ~~~
 ~~~
-$ sudo apt install mariadb-server php-mysql -y
+sudo apt install mariadb-server php-mysql -y
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-php01.png)
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-php02.png)
 
 - ติดตั้ง php-curl
 ~~~
-$ sudo apt-get install php-curl -y
+sudo apt-get install php-curl -y
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-php-curl01.png)
 
@@ -124,17 +124,17 @@ sudo apt-get install php-pgsql -y
 
 - พิมพ์ ดังนี้
 ```
-$ cd /var/www/
-$ ls
-$ sudo chown pi: html
+cd /var/www/
+ls
+sudo chown pi: html
 ```
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-config01.png)
 
 - ตั้งค่า php
 ~~~
-$ php --ini
-$ sudo vim /etc/php/7.4/cli/php.ini
+php --ini
+sudo vim /etc/php/7.4/cli/php.ini
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-php-con02.png)
 - กด i เพื่อ แก้ไขไฟล์
@@ -155,7 +155,7 @@ extension=pgsql
 
 restart service เว็บเซิร์ฟเวอร์ 1 รอบ
 ~~~
-$ sudo systemctl restart apache2
+sudo systemctl restart apache2
 ~~~
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-config03.png)
@@ -163,14 +163,14 @@ $ sudo systemctl restart apache2
 หรือจะ restart เครื่อง Raspberry Pi เลยก็ได้ ด้วยคำสั่ง
 
 ~~~
-$ sudo init 6
+sudo init 6
 ~~~
 
 ---
 ### โหลดโปรเจคจาก github
 - เข้าไปที่ path ของ web server
 ~~~
-$ cd /var/www/html/ 
+cd /var/www/html/ 
 ~~~
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-git02.png)
@@ -178,7 +178,7 @@ $ cd /var/www/html/
 - clone โปรเจคลงมา
 
 ~~~
-$ git clone https://github.com/yuinakorn/cmphoapi.git
+git clone https://github.com/yuinakorn/cmphoapi.git
 ~~~
 - ใส่ username github ของท่านเอง 
 - ในช่อง password ให้ copy token นี้ไปวาง
@@ -191,8 +191,8 @@ Password for : $ ******
 - จะได้โฟลเดอร์ชื่อ cmphoapi ทำการ เข้าไปในโฟลเดอร์โปรเจค พิมพ์
 
 ~~~
-$ cd cmphoapi
-$ ls -l
+cd cmphoapi
+ls -l
 ~~~
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-git03.png)
@@ -209,7 +209,7 @@ $ ls -l
 ### เชื่อมต่อ Database HIS
 
 ~~~
-$ vim connection.php
+vim connection.php
 ~~~
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-vim-con00.png)
@@ -237,13 +237,13 @@ $ vim connection.php
 คำสั่งตรวจสอบ cron ในเครื่องว่ามีการตั้งเวลาทำงานอะไรไว้หรือไม่
 
 ~~~
-$ crontab -l
+sudo crontab -l
 ~~~
 
 ทำการตั้งเวลาให้ส่งข้อมูลอัตโนมัติ ดังนี้
 
 ~~~
-$ crontab -e
+sudo crontab -e
 ~~~
 
 เมื่อเข้ามาครั้งแรกระบบจะให้เลือก text editor ที่จะใช้เขียน crontab
@@ -293,7 +293,7 @@ $ crontab -e
 รีสตาร์ท cron
 
 ~~~
-$ /etc/init.d/cron reload
+/etc/init.d/cron reload
 ~~~
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-cron-restart01.png)
 
@@ -301,36 +301,36 @@ $ /etc/init.d/cron reload
 
 ---
 
-## กรณีติดตั้งด้วย Docker 
+## กรณีติดตั้งด้วย Docker (หากติดตั้งด้านบนแล้ว ไม่ต้องติดตั้องแบบ Docker นี้)
 
 ### ติดตั้ง Docker
 
 Uninstall old versions
 ~~~
-$ sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get remove docker docker-engine docker.io containerd runc
 ~~~
 
 download ไฟล์สำหรับติดตั้ง Docker get-docker.sh
 ~~~
-$ curl -fsSL https://get.docker.com -o get-docker.sh
-$ ls
-$ sudo bash get-docker.sh
+curl -fsSL https://get.docker.com -o get-docker.sh
+ls
+sudo bash get-docker.sh
 ~~~
 
 เซ็ตกลุ่ม user สำหรับ docker
 ~~~
-$ sudo usermod -aG docker $(whoami)
-$ sudo usermod -aG docker root
+sudo usermod -aG docker $(whoami)
+sudo usermod -aG docker root
 ~~~
 
 ตรวจสอบ Docker ว่าติดตั้งสำเร็จหรือไม่
 ~~~
-$ docker --version
+docker --version
 ~~~
 
 enable service
 ~~~
-$ sudo systemctl enable docker.service
+sudo systemctl enable docker.service
 ~~~
 
 ---
@@ -340,8 +340,8 @@ $ sudo systemctl enable docker.service
 เข้าไปที่ path ของโปรเจค
 
 ~~~
-$ cd /var/www/html
-$ git clone https://github.com/yuinakorn/cmphoapi.git
+cd /var/www/html
+git clone https://github.com/yuinakorn/cmphoapi.git
 ~~~
 
 - ใส่ username github ของท่านเอง หากไม่มี ใส่ yuinakorn ได้
@@ -356,8 +356,8 @@ Password for : $ จะส่ง Token ให้ทาง zoom
 - จะได้โฟลเดอร์ชื่อ cmphoapi ทำการ เข้าไปในโฟลเดอร์โปรเจค พิมพ์
 
 ~~~
-$ cd cmphoapi
-$ ls -l
+cd cmphoapi
+ls -l
 ~~~
 
 ![image](https://www.chiangmaihealth.go.th/cmpho_web/images/yui/pi-git03.png)
@@ -371,7 +371,7 @@ $ ls -l
 * ก่อนรันคำสั่งต้องอยู่ที่พาร์ธ /var/www/html/cmphoapi/
 
 ~~~
-$ docker run -dit --name cmpho-api --restart=always -p 80:80 -v $(pwd):/var/www/html yuinakorn/phpmysqlpg-armv7
+docker run -dit --name cmpho-api --restart=always -p 80:80 -v $(pwd):/var/www/html yuinakorn/phpmysqlpg-armv7
 ~~~
 
 
@@ -386,11 +386,11 @@ $ docker run -dit --name cmpho-api --restart=always -p 80:80 -v $(pwd):/var/www/
 - เข้าถึง container ด้วยคำสั่ง
 
 ~~~
-$ docker exec -it [name] bash
+docker exec -it [name] bash
 ~~~
 
 ~~~
-$ crontab -e
+crontab -e
 ~~~
 
 
